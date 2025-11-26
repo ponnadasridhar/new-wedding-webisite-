@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<rect width="800" height="450" fill="#121824"/>
+<g opacity="0.9">
+<circle cx="120" cy="90" r="16" fill="#6c8cff"/>
+<circle cx="190" cy="160" r="14" fill="#23d5ab"/>
+<circle cx="80" cy="210" r="10" fill="#ff6b6b"/>
+<circle cx="300" cy="100" r="12" fill="#9aa4b2"/>
+<circle cx="260" cy="220" r="8" fill="#6c8cff"/>
+</g>
+<g transform="translate(400,220)">
+<rect x="-40" y="-40" width="80" height="60" fill="#6c8cff"/>
+<rect x="-30" y="-58" width="60" height="20" fill="#23d5ab"/>
+<rect x="-4" y="-78" width="8" height="20" fill="#ff6b6b"/>
+</g>
+<text x="50%" y="85%" dominant-baseline="middle" text-anchor="middle" font-size="40" fill="#e6eef6" font-family="Inter, Arial">Birthday Bash</text>
+</svg>
