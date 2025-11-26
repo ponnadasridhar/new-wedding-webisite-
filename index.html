@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Booking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+<div class="logo">Eventio</div>
+<nav class="nav">
+<a href="#home" class="nav-link active">Home</a>
+<a href="#booking" class="nav-link">Booking</a>
+<a href="#admin" class="nav-link">Admin</a>
+<a href="#contact" class="nav-link">Contact</a>
+</nav>
+</header>
+
+<main>
+<section id="home" class="section">
+<div class="hero">
+<div class="hero-art">
+<div class="slider">
+<div class="slider-track">
+<a href="#booking" data-type="Wedding"><img src="assets/wedding.svg" alt="Wedding"></a>
+<a href="#booking" data-type="Birthday"><img src="assets/birthday.svg" alt="Birthday"></a>
+<a href="#booking" data-type="Corporate"><img src="assets/corporate.svg" alt="Corporate Gala"></a>
+<a href="#booking" data-type="Wedding"><img src="assets/wedding.svg" alt="Wedding"></a>
+<a href="#booking" data-type="Birthday"><img src="assets/birthday.svg" alt="Birthday"></a>
+<a href="#booking" data-type="Corporate"><img src="assets/corporate.svg" alt="Corporate Gala"></a>
+</div>
+<button class="slider-btn prev" aria-label="Previous">◀</button>
+<button class="slider-btn next" aria-label="Next">▶</button>
+</div>
+</div>
+<div class="hero-text">
+<h1>Celebrate With Ease</h1>
+<p>Book premium halls and services for weddings, birthdays, corporate events and more.</p>
+<button class="btn primary" data-nav="booking">Book Now</button>
+</div>
+</div>
+
+<h2 class="section-title">Limited-Time Offers</h2>
+<div class="cards">
+<div class="card">
+<img src="assets/wedding.svg" alt="Wedding Hall">
+<div class="card-body">
+<h3>Wedding Package</h3>
+<p>20% off on weekend bookings.</p>
+<button class="btn" data-nav="booking">Book</button>
+</div>
+</div>
+<div class="card">
+<img src="assets/birthday.svg" alt="Birthday Party">
+<div class="card-body">
+<h3>Birthday Bash</h3>
+<p>Free décor add-on for 100+ guests.</p>
+<button class="btn" data-nav="booking">Book</button>
+</div>
+</div>
+<div class="card">
+<img src="assets/corporate.svg" alt="Corporate Event">
+<div class="card-body">
+<h3>Corporate Gala</h3>
+<p>15% off for weekday events.</p>
+<button class="btn" data-nav="booking">Book</button>
+</div>
+</div>
+</div>
+
+<h2 class="section-title">Services</h2>
+<div class="services">
+<div class="service">
+<div class="service-icon">🎉</div>
+<div class="service-text">
+<h4>Birthday</h4>
+<p>Themed décor, cakes, entertainment and more.</p>
+</div>
+</div>
+<div class="service">
+<div class="service-icon">💍</div>
+<div class="service-text">
+<h4>Wedding</h4>
+<p>Luxury venues, catering and full planning.</p>
+</div>
+</div>
+<div class="service">
+<div class="service-icon">🏢</div>
+<div class="service-text">
+<h4>Corporate</h4>
+<p>Conferences, product launches and team offsites.</p>
+</div>
+</div>
+<div class="service">
+<div class="service-icon">👶</div>
+<div class="service-text">
+<h4>Baby Shower</h4>
+<p>Intimate gatherings with bespoke décor.</p>
+</div>
+</div>
+</div>
+
+<h2 class="section-title">Event Cost Calculator</h2>
+<form id="price-calculator" class="form narrow">
+<div class="form-row">
+<label>Event Type</label>
+<select id="calcType" required>
+<option value="Wedding">Wedding</option>
+<option value="Birthday">Birthday</option>
+<option value="Corporate">Corporate</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="form-row">
+<label>Number of Guests</label>
+<input type="number" id="calcGuests" min="0" placeholder="Enter guests">
+</div>
+<button class="btn primary" type="submit">Calculate</button>
+<div id="calc-result" class="message"></div>
+</form>
+</section>
+
+<section id="booking" class="section hidden">
+<h2 class="section-title">Book Your Event</h2>
+<div class="booking-layout">
+<div class="calendar-panel">
+<div id="calendar"></div>
+<div class="legend">
+<span class="legend-item"><span class="dot available"></span>Available</span>
+<span class="legend-item"><span class="dot booked"></span>Booked</span>
+<span class="legend-item"><span class="dot disabled"></span>Not Allowed</span>
+</div>
+</div>
+<form id="booking-form" class="form">
+<div class="form-row">
+<label>Date</label>
+<input type="date" id="date" required>
+</div>
+<div class="form-row">
+<label>Event Type</label>
+<select id="eventType" required>
+<option value="Wedding">Wedding</option>
+<option value="Birthday">Birthday</option>
+<option value="Corporate">Corporate</option>
+<option value="Baby Shower">Baby Shower</option>
+<option value="Other">Other</option>
+</select>
+</div>
+<div class="form-row">
+<label>Name</label>
+<input type="text" id="name" placeholder="Full name" required>
+</div>
+<div class="form-row">
+<label>Contact</label>
+<input type="tel" id="contact" placeholder="Phone number" required>
+</div>
+<div class="form-row">
+<label>Guests</label>
+<input type="number" id="guests" min="1" placeholder="Number of guests" required>
+</div>
+<button class="btn primary" type="submit">Confirm Booking</button>
+<div id="booking-message" class="message"></div>
+</form>
+</div>
+</section>
+
+<section id="admin" class="section hidden">
+<h2 class="section-title">Admin</h2>
+<div class="admin-actions">
+<input type="text" id="search" placeholder="Search by name or date">
+<button id="logout" class="btn">Logout</button>
+</div>
+<div class="table-wrap">
+<table class="table" id="booking-table">
+<thead>
+<tr>
+<th>Date</th>
+<th>Type</th>
+<th>Name</th>
+<th>Contact</th>
+<th>Guests</th>
+<th>Actions</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<div id="admin-message" class="message"></div>
+</section>
+
+<section id="contact" class="section hidden">
+<h2 class="section-title">Contact Us</h2>
+<form id="contact-form" class="form narrow">
+<div class="form-row">
+<label>Name</label>
+<input type="text" id="c_name" required>
+</div>
+<div class="form-row">
+<label>Email</label>
+<input type="email" id="c_email" required>
+</div>
+<div class="form-row">
+<label>Message</label>
+<textarea id="c_message" rows="5" required></textarea>
+</div>
+<button class="btn primary" type="submit">Send</button>
+<div id="contact-message" class="message"></div>
+</form>
+</section>
+</main>
+
+<footer class="site-footer">
+<div>© <span id="year"></span> Eventio</div>
+</footer>
+
+<div id="calc-modal" class="modal hidden">
+<div class="modal-backdrop"></div>
+<div class="modal-content">
+<h3>Estimated Cost</h3>
+<div id="calc-modal-body" class="message"></div>
+<button class="btn primary" id="calc-modal-close">OK</button>
+</div>
+</div>
+
+<div id="admin-auth" class="modal hidden">
+<div class="modal-backdrop"></div>
+<div class="modal-content">
+<h3 id="auth-title">Admin Login</h3>
+<form id="auth-form" class="form narrow">
+<div class="form-row">
+<label>Password</label>
+<input type="password" id="auth-password" required>
+<div id="auth-help" class="message"></div>
+</div>
+<button class="btn primary" type="submit" id="auth-submit">Continue</button>
+<button class="btn" type="button" id="auth-cancel">Cancel</button>
+</form>
+</div>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
